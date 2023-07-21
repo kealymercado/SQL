@@ -1,0 +1,23 @@
+CREATE TABLE store (id INTEGER PRIMARY KEY, item TEXT, type TEXT, stock INTEGER, sold INTEGER, price INTEGER);
+
+INSERT INTO store VALUES (1, "Align 25' Leggings", "Women's pants",60, 58,98);
+INSERT INTO store VALUES (2, "Groove Pant Flare", "Women's pants",40,20,128);
+INSERT INTO store VALUES (3, "Hotty Hot HR short 2.5'", "Women's shorts",60, 40,68);
+INSERT INTO store VALUES (4, "Speed Up HR short 2.5'", "Women's shorts",40,30,68);
+INSERT INTO store VALUES (5, "License to Train 7' Lined short", "Men's shorts",50,35,88);
+INSERT INTO store VALUES (6, "Pace Breaker 5' LL short", "Men's shorts",50,20,88);
+INSERT INTO store VALUES (7,"Brushstreme 31' pant","Women's pants",30,24,128);
+INSERT INTO store VALUES (8,"Hotty Hot HR short 4'", "Women's shorts",60, 40,68);
+INSERT INTO store VALUES (9,"Speed Up HR short 4'", "Women's shorts",40,30,68);
+INSERT INTO store VALUES (10,"Swiftly Tech Race Length", "Women's tops",70,45,78);
+INSERT INTO store VALUES (11,"Commission pant slim","Men's pants",30,25,128);
+INSERT INTO store VALUES (12, "ABC pant slim", "Men's pants",40,32,128);
+INSERT INTO store VALUES (13, " Align Tank", "Women's tops",30,24,58);
+INSERT INTO store VALUES (14, "Metal Vent Tee", "Men's tops",20,13,78);
+INSERT INTO store VALUES (15, "All Yours Tee", "Women's tops", 30,14,58);
+INSERT INTO store VALUES (16, "Fundamental Tee", "Men's tops", 30,24,58);
+SELECT * FROM store;
+
+SELECT * FROM store ORDER BY price;
+SELECT * FROM store WHERE sold <20 ORDER BY price;
+SELECT type, SUM(sold) FROM store GROUP BY type ORDER BY SUM(sold);
