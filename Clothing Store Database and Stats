@@ -16,8 +16,20 @@ INSERT INTO store VALUES (13, " Align Tank", "Women's tops",30,24,58);
 INSERT INTO store VALUES (14, "Metal Vent Tee", "Men's tops",20,13,78);
 INSERT INTO store VALUES (15, "All Yours Tee", "Women's tops", 30,14,58);
 INSERT INTO store VALUES (16, "Fundamental Tee", "Men's tops", 30,24,58);
-SELECT * FROM store;
 
-SELECT * FROM store ORDER BY price;
-SELECT * FROM store WHERE sold <20 ORDER BY price;
-SELECT type, SUM(sold) FROM store GROUP BY type ORDER BY SUM(sold);
+--display the database ordered by price. 
+SELECT * FROM store
+ORDER BY price desc
+;
+
+-- what items sold the least and what were their price points? display results ordered by price.
+SELECT * FROM store 
+WHERE sold <20 
+ORDER BY price
+;
+
+-- what are the top three types of clothing sold? display by sum of products sold.
+SELECT type, SUM(sold) FROM store 
+GROUP BY type 
+ORDER BY SUM(sold) DESC
+LIMIT 3;
