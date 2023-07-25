@@ -1,0 +1,77 @@
+#For this project, I downloaded Spotify data from Kaggle.
+#Then I created a table to insert Spotify data into.
+#Finally, I performed analytics on the data using SQL. 
+
+#Creating the table: 
+CREATE TABLE BIT_DB.Spotifydata (
+id integer PRIMARY KEY,
+artist_name varchar NOT NULL,
+track_name varchar NOT NULL,
+track_id varchar NOT NULL,
+popularity integer NOT NULL,
+danceability decimal(4,3) NOT NULL,
+energy decimal(4,3) NOT NULL,
+key integer NOT NULL,
+loudness decimal(5,3) NOT NULL,
+mode integer NOT NULL,
+speechiness decimal(5,4) NOT NULL,
+acousticness decimal(6,5) NOT NULL,
+instrumentalness text NOT NULL,
+liveness decimal(5,4) NOT NULL,
+valence decimal(4,3) NOT NULL,
+tempo decimal(6,3) NOT NULL,
+duration_ms integer NOT NULL,
+time_signature integer NOT NULL 
+)
+
+
+
+--Top 5 most popular songs?
+SELECT artist_name, track_name, popularity 
+FROM BIT_DB.Spotifydata 
+ORDER BY popularity DESC
+LIMIT 5
+;
+
+--What is the average popularity, danceability, and energy per artist?
+SELECT AVG (popularity) as Average_Popularity, AVG(danceability) as Average_Danceability, AVG(Energy) as Average_Energy
+FROM BIT_DB.Spotifydata
+;
+
+--What are the top 3 most popular tracks but have the lowest energy?
+SELECT track_name, popularity, energy
+FROM BIT_DB.Spotifydata 
+WHERE popularity > 90
+ORDER BY energy
+LIMIT 3
+;
+
+-- Which artists have 2 or more tracks with over 90 popularity?
+SELECT artist_name
+FROM BIT_DB.Spotifydata
+WHERE popularity > 90
+GROUP BY artist_name
+HAVING COUNT(artist_name) >= 2
+;
+
+
+--Organize artists and tracks by popularity scale. Order Most to Least popular.(least popularity, median popularity, and most popularity)
+SELECT artist_name, track_name, popularity
+,CASE
+   WHEN popularity > 90 THEN "Most Popularity"
+   WHEN popularity > 80 THEN "Median Popularity"
+   WHEN popularity > 70 THEN "Least Popularity"
+   ELSE "Not Popular"
+END as popularity_scale
+FROM BIT_DB.Spotifydata
+ORDER BY popularity DESC 
+;
+
+--What are the top 25 tracks based on popularity but not featuring another artist?
+SELECT track_name, popularity
+FROM BIT_DB.Spotifydata
+WHERE track_name NOT LIKE '%feat%' 
+AND track_name NOT LIKE '%with%'
+ORDER BY popularity DESC
+LIMIT 25
+;
