@@ -1,4 +1,4 @@
-#For this project, I created a table in the database and inserted City Bike Lane data into the table. Then, I performed analytics on the data using SQL. 
+#For this project, I performed analytics using SQL on a table containing data of city bike lanes. 
 
 
 CREATE TABLE BIT_DB.CityBikeLanes (
