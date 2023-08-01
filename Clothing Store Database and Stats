@@ -1,3 +1,5 @@
+# Here, I started by creating a table consisting of items in a store. Then, I performed analytics on the data using SQL.
+
 CREATE TABLE store (id INTEGER PRIMARY KEY, item TEXT, type TEXT, stock INTEGER, sold INTEGER, price INTEGER);
 
 INSERT INTO store VALUES (1, "Align 25' Leggings", "Women's pants",60, 58,98);
