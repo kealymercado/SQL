@@ -1,3 +1,5 @@
+# For this project, I am querying a table consisting of logs to find out information about the data.
+
 CREATE TABLE winstons_donut_logs 
 (id TEXT PRIMARY KEY, status TEXT, years_old INTEGER, donuts_eaten INTEGER, reason TEXT);
 
