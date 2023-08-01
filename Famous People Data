@@ -1,3 +1,8 @@
+/*For this project, I created a multiple tables. The first table includes information about different celebrities, 
+while the second table consists of movie titles and ids that indicate which celebrities featured in those movies.
+Lastly, the third table consists only of integers that correspond to the celebrity ids to showcase which pairs are couples.
+The purpose of this is to challenge myself and practice joins and self-joins!*/
+
 CREATE TABLE celebrities
      (id INTEGER PRIMARY KEY AUTOINCREMENT,
      name TEXT,
