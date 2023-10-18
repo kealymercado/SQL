@@ -1,4 +1,4 @@
-
+# For this project, I am querying a table consisting of logs to find out information about the data.
 
 CREATE TABLE superstore (
     item_id INTEGER PRIMARY KEY,
@@ -27,26 +27,30 @@ VALUES
     (14, 'Cutlery Set', 'Kitchen Supplies', 34.50, 40, 4.4),
     (15, 'Cozy Throw Blanket', 'Furnishings', 24.99, 100, 4.2);\
 
-//Use a SELECT statement to order the items by price.//
+--Use a SELECT statement to order the items by price
 
 SELECT *
 FROM superstore
-ORDER BY price;
+ORDER BY price
+;
 
-//Show a statistic about the item prices//
+--Show a statistic about the item prices//
 
 SELECT max(price)
-FROM superstore;
+FROM superstore
+;
 
-//Show a statistic about the price for items in the category of "Kitchen Supplies"//
+--Show a statistic about the price for items in the category of "Kitchen Supplies"//
 
 SELECT min(price)
 FROM superstore
-WHERE category = 'Kitchen Supplies';
+WHERE category = 'Kitchen Supplies'
+;
 
-//Show the average rating from each department//
+--Show the average rating from each department//
 
 SELECT category, avg(average_rating)
 FROM superstore
 GROUP BY category
-ORDER BY AVG(average_rating)DESC;
+ORDER BY AVG(average_rating)DESC
+;
