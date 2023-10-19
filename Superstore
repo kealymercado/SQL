@@ -34,20 +34,20 @@ FROM superstore
 ORDER BY price
 ;
 
---Show a statistic about the item prices//
+--Show a statistic about the item prices
 
-SELECT max(price)
+SELECT avg(price)
 FROM superstore
 ;
 
---Show a statistic about the price for items in the category of "Kitchen Supplies"//
+--Show a statistic about the price for items in the category of "Kitchen Supplies"
 
 SELECT min(price)
 FROM superstore
 WHERE category = 'Kitchen Supplies'
 ;
 
---Show the average rating from each department//
+--Show the average rating from each department
 
 SELECT category, avg(average_rating)
 FROM superstore
